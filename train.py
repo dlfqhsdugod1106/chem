@@ -14,7 +14,7 @@ def train():
     parser = argparse.ArgumentParser()
 
     parser.add_argument('--project', type=str, default='chem')
-    parser.add_argument('--base_dir', type=str, default='/data4/chem')
+    parser.add_argument('--base_dir', type=str, default='.')
     parser.add_argument('--data_dir', type=str, default='data')
     parser.add_argument('--batch_size', type=int, default=16)
     parser.add_argument('--debug', dest='debug', action='store_true')

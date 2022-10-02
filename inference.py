@@ -16,7 +16,7 @@ import numpy as np
 def inference():
     parser = argparse.ArgumentParser()
 
-    parser.add_argument('--ckpt', type=str, default=None)
+    parser.add_argument('--ckpt', type=str, default='ckpt/epoch\=1819-step\=220220.ckpt')
     parser.add_argument('--param_dir', type=str, default='data/tot_param.npy')
     parser.add_argument('--ff_energy_dir', type=str, default='data/ff_ene.npy')
     parser.add_argument('--save_dir', type=str, default='data/inference_results.npy')
@@ -32,7 +32,6 @@ def inference():
     inference_loader = DataLoader(inference_dataset, batch_size=args.batch_size, shuffle=False, num_workers=4)
     predictions = trainer.predict(solver, dataloaders=inference_loader)
     predictions = torch.cat(predictions).detach().cpu().numpy()
-    print(predictions.shape)
     np.save(args.save_dir, predictions)
 
 if __name__ == '__main__':
