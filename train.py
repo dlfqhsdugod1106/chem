@@ -48,7 +48,7 @@ def train():
                          enable_checkpointing=True,
                          max_epochs=10000, 
                          accelerator='gpu',
-                         devices=-1,
+                         devices=1,
                          fast_dev_run=args.debug,
                          num_sanity_val_steps=0,
                          check_val_every_n_epoch=args.check_val_every_n_epoch,

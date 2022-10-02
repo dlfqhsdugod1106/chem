@@ -26,7 +26,7 @@ def inference():
     args = parser.parse_args()
 
     solver = EnergyPredictionSolver.load_from_checkpoint(args.ckpt) 
-    trainer = pl.Trainer(accelerator='gpu', devices=-1, max_epochs=-1, num_sanity_val_steps=0)
+    trainer = pl.Trainer(accelerator='gpu', devices=1, max_epochs=-1, num_sanity_val_steps=0)
 
     inference_dataset = LiBF4InferenceDataset(args.param_dir, args.ff_energy_dir)
     inference_loader = DataLoader(inference_dataset, batch_size=args.batch_size, shuffle=False, num_workers=4)
