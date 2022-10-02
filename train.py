@@ -32,7 +32,7 @@ def train():
     name = 'debug' if args.debug else datetime.now().strftime('%Y_%m_%d_%H_%M_%S')
     args.save_dir = opj(args.base_dir, name)
     os.makedirs(args.save_dir, exist_ok=True)
-    for d in ['train', 'valid', 'test', 'ckpt', 'wandb']:
+    for d in ['valid', 'ckpt', 'wandb']:
         os.makedirs(opj(args.save_dir, d), exist_ok=True)
 
     # load solver
